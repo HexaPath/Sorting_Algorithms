@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tab.cs" />
     <EmbeddedResource Include="Sorting_Exercise_Form.resx">
       <DependentUpon>Sorting_Exercise_Form.cs</DependentUpon>
     </EmbeddedResource>

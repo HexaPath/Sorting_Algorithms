@@ -33,7 +33,7 @@
             this.BtnMin = new System.Windows.Forms.Button();
             this.BtnMax = new System.Windows.Forms.Button();
             this.BtnSum = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnAvg = new System.Windows.Forms.Button();
             this.NumberDisplayLabel = new System.Windows.Forms.Label();
             this.BtnContains = new System.Windows.Forms.Button();
             this.BtnBinary = new System.Windows.Forms.Button();
@@ -59,47 +59,52 @@
             this.BtnAdd.TabIndex = 1;
             this.BtnAdd.Text = "Dodaj";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnMin
             // 
-            this.BtnMin.Location = new System.Drawing.Point(13, 92);
+            this.BtnMin.Location = new System.Drawing.Point(12, 109);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Size = new System.Drawing.Size(100, 45);
             this.BtnMin.TabIndex = 2;
             this.BtnMin.Text = "Min";
             this.BtnMin.UseVisualStyleBackColor = true;
+            this.BtnMin.Click += new System.EventHandler(this.BtnMin_Click);
             // 
             // BtnMax
             // 
-            this.BtnMax.Location = new System.Drawing.Point(119, 92);
+            this.BtnMax.Location = new System.Drawing.Point(118, 109);
             this.BtnMax.Name = "BtnMax";
             this.BtnMax.Size = new System.Drawing.Size(100, 45);
             this.BtnMax.TabIndex = 3;
             this.BtnMax.Text = "Max";
             this.BtnMax.UseVisualStyleBackColor = true;
+            this.BtnMax.Click += new System.EventHandler(this.BtnMax_Click);
             // 
             // BtnSum
             // 
-            this.BtnSum.Location = new System.Drawing.Point(12, 143);
+            this.BtnSum.Location = new System.Drawing.Point(11, 160);
             this.BtnSum.Name = "BtnSum";
             this.BtnSum.Size = new System.Drawing.Size(100, 45);
             this.BtnSum.TabIndex = 4;
             this.BtnSum.Text = "Sum";
             this.BtnSum.UseVisualStyleBackColor = true;
+            this.BtnSum.Click += new System.EventHandler(this.BtnSum_Click);
             // 
-            // button2
+            // BtnAvg
             // 
-            this.button2.Location = new System.Drawing.Point(119, 143);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 45);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Avg";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnAvg.Location = new System.Drawing.Point(118, 160);
+            this.BtnAvg.Name = "BtnAvg";
+            this.BtnAvg.Size = new System.Drawing.Size(100, 45);
+            this.BtnAvg.TabIndex = 5;
+            this.BtnAvg.Text = "Avg";
+            this.BtnAvg.UseVisualStyleBackColor = true;
+            this.BtnAvg.Click += new System.EventHandler(this.BtnAvg_Click);
             // 
             // NumberDisplayLabel
             // 
             this.NumberDisplayLabel.AutoSize = true;
-            this.NumberDisplayLabel.Location = new System.Drawing.Point(12, 58);
+            this.NumberDisplayLabel.Location = new System.Drawing.Point(12, 243);
             this.NumberDisplayLabel.Name = "NumberDisplayLabel";
             this.NumberDisplayLabel.Size = new System.Drawing.Size(49, 13);
             this.NumberDisplayLabel.TabIndex = 6;
@@ -107,12 +112,13 @@
             // 
             // BtnContains
             // 
-            this.BtnContains.Location = new System.Drawing.Point(13, 211);
+            this.BtnContains.Location = new System.Drawing.Point(12, 58);
             this.BtnContains.Name = "BtnContains";
             this.BtnContains.Size = new System.Drawing.Size(207, 45);
             this.BtnContains.TabIndex = 7;
             this.BtnContains.Text = "Contains";
             this.BtnContains.UseVisualStyleBackColor = true;
+            this.BtnContains.Click += new System.EventHandler(this.BtnContains_Click);
             // 
             // BtnBinary
             // 
@@ -122,6 +128,7 @@
             this.BtnBinary.TabIndex = 8;
             this.BtnBinary.Text = "Contains Bintary";
             this.BtnBinary.UseVisualStyleBackColor = true;
+            this.BtnBinary.Click += new System.EventHandler(this.BtnBinary_Click);
             // 
             // BtnSelection
             // 
@@ -131,6 +138,7 @@
             this.BtnSelection.TabIndex = 9;
             this.BtnSelection.Text = "Edit with Selection";
             this.BtnSelection.UseVisualStyleBackColor = true;
+            this.BtnSelection.Click += new System.EventHandler(this.BtnSelection_Click);
             // 
             // BtnBubbleSort
             // 
@@ -140,6 +148,7 @@
             this.BtnBubbleSort.TabIndex = 11;
             this.BtnBubbleSort.Text = "Edit with BubbleSort";
             this.BtnBubbleSort.UseVisualStyleBackColor = true;
+            this.BtnBubbleSort.Click += new System.EventHandler(this.BtnBubbleSort_Click);
             // 
             // BtnInsertion
             // 
@@ -149,6 +158,7 @@
             this.BtnInsertion.TabIndex = 10;
             this.BtnInsertion.Text = "Edit with Insertion";
             this.BtnInsertion.UseVisualStyleBackColor = true;
+            this.BtnInsertion.Click += new System.EventHandler(this.BtnInsertion_Click);
             // 
             // BtnFastEditing
             // 
@@ -158,6 +168,7 @@
             this.BtnFastEditing.TabIndex = 12;
             this.BtnFastEditing.Text = "Fast Editing";
             this.BtnFastEditing.UseVisualStyleBackColor = true;
+            this.BtnFastEditing.Click += new System.EventHandler(this.BtnFastEditing_Click);
             // 
             // Sorting_Exercise_Form
             // 
@@ -171,7 +182,7 @@
             this.Controls.Add(this.BtnBinary);
             this.Controls.Add(this.BtnContains);
             this.Controls.Add(this.NumberDisplayLabel);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnAvg);
             this.Controls.Add(this.BtnSum);
             this.Controls.Add(this.BtnMax);
             this.Controls.Add(this.BtnMin);
@@ -191,7 +202,7 @@
         private System.Windows.Forms.Button BtnMin;
         private System.Windows.Forms.Button BtnMax;
         private System.Windows.Forms.Button BtnSum;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnAvg;
         private System.Windows.Forms.Label NumberDisplayLabel;
         private System.Windows.Forms.Button BtnContains;
         private System.Windows.Forms.Button BtnBinary;
