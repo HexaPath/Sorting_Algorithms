@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sorting_Algorithms
 {
-    public partial class Form1 : Form
+    public partial class Sorting_Exercise_Form : Form
     {
-        public Form1()
+        public Sorting_Exercise_Form()
         {
             InitializeComponent();
         }
