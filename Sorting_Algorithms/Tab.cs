@@ -38,13 +38,20 @@ namespace Sorting_Algorithms
         {
             string str = "";
             for (int i = 0; i < Lenght; i++)
-            {
+            { 
                 if (i != 0)
                 {
                     str += ", ";
+                    str += Table[i];
+                    
+                }
+                else
+                {
+                    str += Table[i];
                 }
             }
             return str;
+            //return str;
         }
 
         public int Sum()
@@ -183,10 +190,32 @@ namespace Sorting_Algorithms
             return true;
         }
 
+        public bool Insertion(int key)
+        {
+            Table[Lenght] = key;
+            Lenght++;
+        bool sorted;
+        int x;
+        int newLenght = Lenght;
+        do
+        {
+            sorted = false;
+            for (int i = 0; i < newLenght; i++)
+            {
+                int iplusena = i + 1;
+                if (Table[i] > Table[iplusena])
+                {
+                    x = Table[i];
+                    Table[i] = Table[iplusena];
+                    Table[iplusena] = x;
+                    sorted = true;
 
-
-
-
+                }   
+            }
+        }
+        while (sorted); 
+        return true;
+        }
     }
 }
         

@@ -31,11 +31,12 @@ namespace Sorting_Algorithms
                 Number = Convert.ToInt32(TextBox.Text); // If all is fine, convert textbox to int32 and save it in integer "Number"
             }
 
-            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
+            
             tab.Add(Number);    // Add this number to the bunch => Send it to class
             TextBox.Clear();    // Cleare up the Textbox
             TextBox.Focus();    // Setting focus to TextBox
             TextBox.Select();   // Selecting TextBox's next input
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
         }
 
         private void BtnMin_Click(object sender, EventArgs e)
@@ -110,18 +111,45 @@ namespace Sorting_Algorithms
                     MessageBox.Show("Table does not contain " + Number);
                 }
             }
-
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
             TextBox.Clear();    // Cleare up the Textbox 
         }
 
         private void BtnSelection_Click(object sender, EventArgs e)
         {
-
+            if (tab.Selection() == true)
+            {
+                MessageBox.Show("Table is sorted");
+            }
+            else
+            {
+                MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
+            }
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
         }
 
         private void BtnInsertion_Click(object sender, EventArgs e)
         {
+            int Number = 0; // Declaration of Number
+            if (TextBox.Text == "" || TextBox.Text == null) // Making sure, textbox is not empty
+            {
+                MessageBox.Show("Please, Input a number");  // If textbox is empty, return this message
+            }
+            else
+            {
+                Number = Convert.ToInt32(TextBox.Text); // If all is fine, convert textbox to int32 and save it in integer "Number"
 
+                if (tab.Insertion(Number))
+                {
+                    MessageBox.Show("Table is sorted");
+                }
+                else
+                {
+                    MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
+                }
+            }
+            TextBox.Clear();    // Cleare up the Textbox 
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
         }
 
         private void BtnBubbleSort_Click(object sender, EventArgs e)
@@ -134,12 +162,12 @@ namespace Sorting_Algorithms
             {
                 MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
             }
-            
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
         }
 
         private void BtnFastEditing_Click(object sender, EventArgs e)
         {
-
+            NumberDisplayLabel.Text = tab.ToString();   // Update numbers display 
         }
     }
 }
