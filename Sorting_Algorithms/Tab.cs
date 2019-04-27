@@ -19,7 +19,7 @@ namespace Sorting_Algorithms
         public void Add(int x)
         {
             Table[Lenght] = x;
-            Lenght++,
+            Lenght++;
         }
 
         public bool Contains(int x)
@@ -140,7 +140,47 @@ namespace Sorting_Algorithms
 
         public bool BubbleSort()
         {
-            return false;
+            bool sorted;
+            int x;
+            int newLenght = Lenght;
+            do
+            {
+                sorted = false;
+                for (int i = 0; i < newLenght; i++)
+                {
+                    int iplusena = i + 1;
+                    if (Table[i] > Table[iplusena])
+                    {
+                        x = Table[i];
+                        Table[i] = Table[iplusena];
+                        Table[iplusena] = x;
+                        sorted = true;
+
+                    }
+                }
+            }
+            while (sorted);
+            return true;
+        }
+
+        public bool Selection()
+        { 
+            int min, temp; 
+            for (int first = 0; first < Lenght; first++)
+            {
+                min = first;
+                for(int i = first + 1; i < Lenght; i++)
+                {
+                    if(Table[i] < Table[min])
+                    {
+                        min = i;
+                    }
+                    temp = Table[min];
+                    Table[min] = Table[first];
+                    Table[first] = temp;
+                }
+            }
+            return true;
         }
 
 

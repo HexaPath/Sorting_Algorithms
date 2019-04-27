@@ -41,14 +41,14 @@ namespace Sorting_Algorithms
         private void BtnMin_Click(object sender, EventArgs e)
         {
             int Number = tab.Min();
-            MessageBox.Show("Lowest number is" + Number);
+            MessageBox.Show("Lowest number is " + Number);
             TextBox.Clear();    // Cleare up the Textbox
         }
 
         private void BtnMax_Click(object sender, EventArgs e)
         {
             int Number = tab.Max();
-            MessageBox.Show("Highest number is" + Number);
+            MessageBox.Show("Highest number is " + Number);
             TextBox.Clear();    // Cleare up the Textbox
         }
 
@@ -63,7 +63,7 @@ namespace Sorting_Algorithms
         {
             double Avg = tab.Avg();
             Avg = Math.Round(Avg, 2);
-            MessageBox.Show("Average number is" + Avg);
+            MessageBox.Show("Average number is " + Avg);
             TextBox.Clear();    // Cleare up the Textbox
         }
 
@@ -77,17 +77,16 @@ namespace Sorting_Algorithms
             else
             {
                 Number = Convert.ToInt32(TextBox.Text); // If all is fine, convert textbox to int32 and save it in integer "Number"
+             
+                if(tab.Contains(Number))
+                {
+                    MessageBox.Show("Table contains " + Number);
+                }
+                else
+                {
+                    MessageBox.Show("Table does not contain " + Number);
+                }
             }
-            
-            if(tab.Contains(Number))
-            {
-                MessageBox.Show("Table contains" + Number);
-            }
-            else
-            {
-                MessageBox.Show("Table does not contain" + Number);
-            } 
-
             TextBox.Clear();    // Cleare up the Textbox 
         }
 
@@ -101,15 +100,15 @@ namespace Sorting_Algorithms
             else
             {
                 Number = Convert.ToInt32(TextBox.Text); // If all is fine, convert textbox to int32 and save it in integer "Number"
-            }
-
-            if (tab.Binary(Number))
-            {
-                MessageBox.Show("Table contains" + Number);
-            }
-            else
-            {
-                MessageBox.Show("Table does not contain" + Number);
+            
+                if (tab.Binary(Number))
+                {
+                    MessageBox.Show("Table contains " + Number);
+                }
+                else
+                {
+                    MessageBox.Show("Table does not contain " + Number);
+                }
             }
 
             TextBox.Clear();    // Cleare up the Textbox 
@@ -127,7 +126,15 @@ namespace Sorting_Algorithms
 
         private void BtnBubbleSort_Click(object sender, EventArgs e)
         {
-
+            if(tab.BubbleSort() == true)
+            {
+                MessageBox.Show("Table is sorted");
+            }
+            else
+            {
+                MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
+            }
+            
         }
 
         private void BtnFastEditing_Click(object sender, EventArgs e)
