@@ -163,10 +163,17 @@ namespace Sorting_Algorithms
                 MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
             }
             NumberDisplayLabel.Text = tab.ToString();   // Update numbers display
-        }
-
+        } 
         private void BtnFastEditing_Click(object sender, EventArgs e)
-        {
+        { 
+            if (tab.QuickSort(0, tab.Lenght-1) == 1)
+            {
+                MessageBox.Show("Table is sorted");
+            }
+            else
+            {
+                MessageBox.Show("DaFaq Did Ya Do? This Should Not Have Happened");
+            }
             NumberDisplayLabel.Text = tab.ToString();   // Update numbers display 
         }
     }

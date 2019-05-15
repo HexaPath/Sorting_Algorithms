@@ -18,8 +18,13 @@ namespace Sorting_Algorithms
 
         public void Add(int x)
         {
-            Table[Lenght] = x;
-            Lenght++;
+            try
+            {
+                Table[Lenght] = x;
+                Lenght++;
+            }
+            catch (Exception)
+            { } 
         }
 
         public bool Contains(int x)
@@ -43,7 +48,6 @@ namespace Sorting_Algorithms
                 {
                     str += ", ";
                     str += Table[i];
-                    
                 }
                 else
                 {
@@ -57,10 +61,13 @@ namespace Sorting_Algorithms
         public int Sum()
         {
             int sum = 0;
-            for (int i = 0; i < Lenght; i++)
+            
+
+            foreach (int element in Table)
             {
-                sum += Table[i];
+                sum += element;
             }
+
             return sum;
         }
 
@@ -110,7 +117,7 @@ namespace Sorting_Algorithms
             int mid = Lenght / 2;
             int count = 0;
 
-            while (true)
+            while (count < Lenght)
             {
                 if (x == mid)
                 {
@@ -126,8 +133,9 @@ namespace Sorting_Algorithms
                     max = mid;
                     mid = (max + min) / 2;
                 }
-                count++;
+                count++; 
             }
+            return false;
         }
 
         public bool Edit()
@@ -142,79 +150,108 @@ namespace Sorting_Algorithms
                 }
                 last--;
             }
+
+            
             return false;
         }
 
         public bool BubbleSort()
         {
-            bool sorted;
-            int x;
-            int newLenght = Lenght;
-            do
+            int n = Lenght;
+            for (int x = 0; x < n; x++)
             {
-                sorted = false;
-                for (int i = 0; i < newLenght; i++)
+                for (int i = n - 1; i > x; i--)
                 {
-                    int iplusena = i + 1;
-                    if (Table[i] > Table[iplusena])
+                    if (Table[i] < Table[i - 1])
                     {
-                        x = Table[i];
-                        Table[i] = Table[iplusena];
-                        Table[iplusena] = x;
-                        sorted = true;
-
+                        int z = Table[i];
+                        Table[i] = Table[i - 1];
+                        Table[i - 1] = z;
                     }
                 }
             }
-            while (sorted);
             return true;
         }
 
         public bool Selection()
-        { 
-            int min, temp; 
-            for (int first = 0; first < Lenght; first++)
+        {
+            int temp_min, temp;
+            for (int i = 0; i < Lenght - 1; i++)
             {
-                min = first;
-                for(int i = first + 1; i < Lenght; i++)
+                temp_min = Table[i];
+                temp = i;
+                for (int n = i + 1; n < Lenght; n++)
                 {
-                    if(Table[i] < Table[min])
+                    if (Table[n] < temp_min)
                     {
-                        min = i;
+                        temp_min = Table[n];
+                        temp = n;
                     }
-                    temp = Table[min];
-                    Table[min] = Table[first];
-                    Table[first] = temp;
                 }
+                Table[temp] = Table[i];
+                Table[i] = temp_min;
             }
             return true;
         }
 
         public bool Insertion(int key)
         {
-            Table[Lenght] = key;
-            Lenght++;
-        bool sorted;
-        int x;
-        int newLenght = Lenght;
-        do
-        {
-            sorted = false;
-            for (int i = 0; i < newLenght; i++)
+            for (int i = Lenght - 1; i >= 0; i--)
             {
-                int iplusena = i + 1;
-                if (Table[i] > Table[iplusena])
+                if (Table[i] > key)
                 {
-                    x = Table[i];
-                    Table[i] = Table[iplusena];
-                    Table[iplusena] = x;
-                    sorted = true;
-
-                }   
+                    Table[i + 1] = Table[i];
+                    Table[i] = key;
+                }
+                else
+                {
+                    Table[i + 1] = key;
+                    break;
+                }
             }
+            Lenght++;
+            return true;
         }
-        while (sorted); 
-        return true;
+
+
+        /*Tole je pa pol vse za fast sort.... če prau razumem... uglavnem, dela, to je važn*/
+
+        int temp = 0; // Da si shranim cifro nter, ko jo premetavam...
+
+        public int QuickSort(int low, int high)
+        {
+            int pivot_loc = 0;
+            if (low < high)
+            {
+                pivot_loc = Partition(low, high);
+                QuickSort(low, pivot_loc - 1);
+                QuickSort(pivot_loc + 1, high);
+            }
+            return 1; 
+        }
+
+        private int Partition(int low, int high)
+        {
+            int pivot = Table[high];
+            int i = low - 1;
+
+            for (int n = low; n < high; n++)
+            {
+                if (Table[n] <= pivot)
+                {
+                    i++;
+                    Rotate(i, n);
+                }
+            }
+            Rotate(i + 1, high);
+            return i + 1;
+        }
+
+        private void Rotate(int a, int b)
+        {
+            temp = Table[a];
+            Table[a] = Table[b];
+            Table[b] = temp;
         }
     }
 }
